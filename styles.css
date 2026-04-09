@@ -1,0 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: blanchedalmond;
+    color: rgb(75, 74, 74);
+    font-family: "Sour Gummy", sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: rgb(75, 7, 114);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar h2 {
+    font-family: "Fascinate Inline", system-ui;
+    font-size: 32px;
+    color: rgb(222, 191, 255);
+}
+
+.novo-chat {
+    background: rgb(113, 43, 226);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    cursor: pointer;
+    font-family: "Sour Gummy", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.historico {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.item-historico {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    transition: 0.2s;
+    position: relative;
+}
+
+.item-historico:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.item-historico.ativo {
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.titulo-chat {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.menu-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.menu-chat {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.75;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-family: "Sour Gummy", sans-serif;
+}
+
+.menu-chat:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.menu-opcoes {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    min-width: 150px;
+    background: rgb(235, 216, 255);
+    border: 1px solid rgba(75, 7, 114, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    padding: 6px;
+    display: none;
+    z-index: 20;
+}
+
+.menu-opcoes.aberto {
+    display: block;
+}
+
+.apagar-chat {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: rgb(255, 0, 0);
+    font-family: "Sour Gummy", sans-serif;
+    font-size: 16px;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.apagar-chat:hover {
+    background: rgba(113, 43, 226, 0.12);
+}
+
+.usuario-fake {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    font-family: "Sour Gummy", sans-serif;
+}
+
+.usuario-bolinha {
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+}
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.chat-topo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(113, 43, 226, 0.25);
+    background: rgb(248, 232, 206);
+}
+
+.chat-topo img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgb(113, 43, 226);
+}
+
+.chat-topo h1 {
+    font-family: "Fascinate Inline", system-ui;
+    color: rgb(113, 43, 226);
+    font-size: 34px;
+}
+
+.chat-topo span {
+    color: rgb(75, 7, 114);
+}
+
+.chat-topo p {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(75, 74, 74);
+    margin-top: 6px;
+}
+
+.mensagens {
+    flex: 1;
+    overflow-y: auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mensagem {
+    max-width: 75%;
+    padding: 16px 18px;
+    border-radius: 18px;
+    line-height: 1.6;
+    font-size: 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.usuario {
+    align-self: flex-end;
+    background: rgb(113, 43, 226);
+    color: white;
+    border-bottom-right-radius: 6px;
+}
+
+.ia {
+    align-self: flex-start;
+    background: rgb(222, 191, 255);
+    color: rgb(75, 74, 74);
+    border: 1px solid rgb(222, 191, 255);
+    border-bottom-left-radius: 6px;
+}
+
+.input-area {
+    padding: 20px 30px 30px;
+    display: flex;
+    gap: 12px;
+    align-items: end;
+    background: blanchedalmond;
+    border-top: 1px solid rgba(113, 43, 226, 0.2);
+}
+
+#texto {
+    flex: 1;
+    min-height: 60px;
+    max-height: 180px;
+    resize: vertical;
+    padding: 16px;
+    border: 1px solid rgb(113, 43, 226);
+    border-radius: 16px;
+    background: rgb(253, 237, 212);
+    color: rgb(75, 7, 114);
+    outline: none;
+    font-family: "Sour Gummy", sans-serif;
+    font-size: 20px;
+}
+
+#miar {
+    background-color: rgb(113, 43, 226);
+    min-width: 130px;
+    height: 60px;
+    color: white;
+    font-size: 20px;
+    font-family: "Sour Gummy", sans-serif;
+    font-weight: bold;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#miar:hover,
+.novo-chat:hover {
+    filter: brightness(1.08);
+}
+
+.pensando {
+    opacity: 0.75;
+    font-style: italic;
+    animation: pulsar 1s infinite;
+}
+
+@keyframes pulsar {
+    0% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
