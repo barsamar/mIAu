@@ -4,7 +4,7 @@ const mensagens = document.querySelector("#mensagens")
 const historico = document.querySelector("#historico")
 const novoChatBtn = document.querySelector("#novoChat")
 
-const chave = "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"
+const chave = "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"
 const endpoint = "https://api.groq.com/openai/v1/chat/completions"
 
 let chats = JSON.parse(localStorage.getItem("miau_chats")) || []
